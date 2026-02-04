@@ -37,8 +37,10 @@ jobs:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
+        working-directory: ./Certificado
         run: npm install
       - name: Build
+        working-directory: ./Certificado
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -46,7 +48,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: './dist'
+          path: './Certificado/dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
